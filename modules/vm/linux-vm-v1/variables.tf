@@ -1,7 +1,3 @@
-variable "subscriptionID" {
-    type = string
-}
-
 variable "resource_group" {
     type = string
     default = "playground"
