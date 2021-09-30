@@ -30,6 +30,11 @@ variable "local_address_space" {
 variable "vpn_type" {
     type=string
     default="RouteBased"
+
+    validation {
+        condition     = contains(["RouteBased", "PolicyBased"], vpn_type)
+        error_message = "Allowed values are \"RouteBased\", \"PolicyBased\"."
+    }
 }
 
 variable "onprempip" {
