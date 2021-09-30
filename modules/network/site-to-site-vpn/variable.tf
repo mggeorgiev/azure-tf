@@ -27,6 +27,11 @@ variable "local_address_space" {
     default = ["192.168.88.0/24"]
 }
 
+variable "vpn_type" {
+    type=string
+    default="RouteBased"
+}
+
 variable "onprempip" {
     type = string
 }

@@ -46,7 +46,7 @@ resource "azurerm_virtual_network_gateway" "site2sitevpngw" {
   resource_group_name = module.site_2_site_vpn_rsg.rg_name
 
   type     = "Vpn"
-  vpn_type = "RouteBased"
+  vpn_type = var.vpn_type
 
   active_active = false
   enable_bgp    = false
