@@ -1,6 +1,6 @@
 # Create storage account to sync the state
 resource "azurerm_storage_account" "storageaccount" {
-    name                        = var.sto_name+"${random_id.randomId.hex}"
+    name                        = var.sto_name#+"${random_id.randomId.hex}"
     resource_group_name         = var.resource_group
     location                    = var.sto_location
     account_tier                = var.tier #"Standard"
