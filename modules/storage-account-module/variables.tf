@@ -2,28 +2,28 @@ variable sto_location {
     type    = string
 }
 
-variable sto_name {
+variable storage_account_name {
     type    = string
 
-    validation {
-        condition     = length(var.sto_name) < 3 && length(var.sto_name) > 24
-        error_message = "The storage account name must be between 3 and 24 symbols."
-    }
+    # validation {
+    #     condition     = length(var.storage_account_name) < 3 && length(var.storage_account_name) > 24
+    #     error_message = "The storage account name must be between 3 and 24 symbols."
+    # }
 
-    validation {
-        condition     = lower(var.sto_name) != var.sto_name
-        error_message = "The storage account name must be lowercase characters."
-    }
+    # validation {
+    #     condition     = lower(var.storage_account_name) != var.sto_name
+    #     error_message = "The storage account name must be lowercase characters."
+    # }
 
-    validation {
-        condition     = regex("[a-z][0-9]", var.sto_name) != var.sto_name
-        error_message = "The storage account name must contain letters and numbers only."
-    }
+    # validation {
+    #     condition     = regex("[a-z][0-9]", var.storage_account_name) != var.storage_account_name
+    #     error_message = "The storage account name must contain letters and numbers only."
+    # }
 
-    validation {
-        condition     = substr(var.sto_name, 0, 3) != "sto"
-        error_message = "The storage account name must start with sto."
-    }
+    # validation {
+    #     condition     = substr(var.storage_account_name, 0, 3) != "sto"
+    #     error_message = "The storage account name must start with sto."
+    # }
 }
 
 variable "account_tier" {
