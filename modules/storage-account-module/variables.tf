@@ -40,10 +40,17 @@ variable resource_group {
     type    = string
 }
 
+### Common TAGS
+
 variable environementtag {
     type    = string
 }
 
 variable billing-code {
     type    = string
+}
+
+variable "custom_tags" {
+    type        = map(string)
+    description = "Tags to set for all resources"
 }
