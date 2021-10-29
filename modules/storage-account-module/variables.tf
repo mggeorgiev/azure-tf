@@ -26,14 +26,14 @@ variable sto_name {
     }
 }
 
-variable tier {
-    type        = string
-    description = "account_tier"
+variable "account_tier" {
+    type    = string
+    default = "Standard"
 }
 
-variable replication_type {
-    type        = string
-    description = "account_replication_type"
+variable "account_replication_type" {
+    type    = string
+    default = "LRS"
 }
 
 variable resource_group {
