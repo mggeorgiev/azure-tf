@@ -16,7 +16,7 @@ variable sto_name {
     }
 
     validation {
-        condition     = regex([a-z0-9], var.sto_name) != var.sto_name
+        condition     = regex([[:lower:][:digit:]], var.sto_name) != var.sto_name
         error_message = "The storage account name must contain letters and numbers only."
     }
 
