@@ -32,7 +32,7 @@ variable "vpn_type" {
     default="RouteBased"
 
     validation {
-        condition     = contains(["RouteBased", "PolicyBased"], vpn_type)
+        condition     = contains(["RouteBased", "PolicyBased"], var.vpn_type)
         error_message = "Allowed values are \"RouteBased\", \"PolicyBased\"."
     }
 }
