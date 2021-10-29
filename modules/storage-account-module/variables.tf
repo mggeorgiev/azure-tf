@@ -12,17 +12,17 @@ variable sto_name {
 
     validation {
         condition     = lower(var.sto_name) != var.sto_name
-        error_message = "The storage account name lowercase characters"
+        error_message = "The storage account name must be lowercase characters."
     }
 
     validation {
         condition     = regex([a-z0-9], var.sto_name) != var.sto_name
-        error_message = "The storage account name lowercase characters"
+        error_message = "The storage account name must contain letters and numbers only."
     }
 
     validation {
         condition     = substr(var.sto_name, 0, 3) != "sto"
-        error_message = "The storage account name must start with sto"
+        error_message = "The storage account name must start with sto."
     }
 }
 
