@@ -1,35 +1,16 @@
-# Create storage account to sync the state
+locals {
+  common_tags = {
+    environementtag = var.environementtag
+    billing-code = var.billing-code
+  }
+}
+
 resource "azurerm_storage_account" "storageaccount" {
-    name                        = var.sto_name#+"${random_id.randomId.hex}"
+    name                        = var.storage_account_name
     resource_group_name         = var.resource_group
-    location                    = var.sto_location
-    account_tier                = var.tier #"Standard"
-    account_replication_type    = var.replication_type #"LRS"
+    location                    = var.stolocation
+    account_tier                = var.account_tier
+    account_replication_type    = var.account_replication_type
 
-    tags = {
-        environment = var.environementtag,
-        billing-code = var.billing-code
-    }
-}
-
-resource "azurerm_storage_container" "sync" {
-  name                  = "sync"
-  storage_account_name  = azurerm_storage_account.keepasstorageaccount.name
-  container_access_type = "private"
-}
-
-resource "azurerm_storage_share" "share" {
-  name                 = "sharename"
-  storage_account_name = azurerm_storage_account.storageaccount.name
-  quota                = 50
-
-  # acl {
-  #   id = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"
-
-  #   access_policy {
-  #     permissions = "rwdl"
-  #     start       = "2019-07-02T09:38:21.0000000Z"
-  #     expiry      = "2019-07-02T10:38:21.0000000Z"
-  #   }
-  # }
+    tags = merge( local.common_tags, var.custom_tags)
 }
