@@ -1,4 +1,4 @@
-variable sto_location {
+variable storage_account_location {
     type    = string
 }
 
