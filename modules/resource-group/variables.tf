@@ -2,7 +2,7 @@
 
 variable "resource_group_name" {
     type = string
-    description = "Resourse group name"
+    description = "Resource group name"
     
     validation {
         condition     = length(var.resource_group_name) > 1 && length(var.resource_group_name) < 90
@@ -12,7 +12,7 @@ variable "resource_group_name" {
 
 variable "resource_group_location" {
     type = string
-    description = "Resourse group location"
+    description = "Resource group location"
 }
 
 variable "environementtag" {
