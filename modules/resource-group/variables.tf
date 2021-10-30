@@ -1,18 +1,25 @@
 # variables.tf
 
-variable "rg_name" {
+variable "resource_group_name" {
     type = string
+    description = "Resourse group name"
+    
+    validation {
+        condition     = length(var.resource_group_name) > 1 && length(var.resource_group_name) < 90
+        error_message = "The lenght ofresourse group name must be between 1 and 90 characters."
+    }
 }
 
-variable "rg_location" {
+variable "resource_group_location" {
     type = string
+    description = "Resourse group location"
 }
 
 variable "environementtag" {
     type = string
 }
 
-variable "billing-code" {
+variable "billing_code" {
     type = string
 }
 
@@ -28,7 +35,7 @@ variable "regions" {
     }
 }
 
-variable "namingprefixes" {
+variable "regions_prefixes" {
     type = map
     default = {
         "global"        = "glob"
