@@ -1,19 +1,19 @@
 module "site_2_site_vpn_rsg" {
-    source              = "git::https://github.com/mggeorgiev/azure-tf.git//modules/resource_group/"
-    rg_name             = var.resource_group_name
-    rg_location         = var.resource_group_location
-    environementtag     = "production"
-    billing-code        = "100"
+  source          = "git::https://github.com/mggeorgiev/azure-tf.git//modules/resource_group/"
+  rg_name         = var.resource_group_name
+  rg_location     = var.resource_group_location
+  environementtag = "production"
+  billing-code    = "100"
 }
 
 module "site_2_site_vpn_vnet" {
-    source              = "git::https://github.com/mggeorgiev/azure-tf.git//modules/network/vnet-module/"
-    resource_group      = module.site_2_site_vpn_rsg.rg_name
-    address_space       = var.address_space
-    address_prefixes    = var.address_prefixes
-    location            = module.site_2_site_vpn_rsg.rg_location
-    environementtag     = "production"
-    billing-code        = "100"
+  source           = "git::https://github.com/mggeorgiev/azure-tf.git//modules/network/vnet-module/"
+  resource_group   = module.site_2_site_vpn_rsg.rg_name
+  address_space    = var.address_space
+  address_prefixes = var.address_prefixes
+  location         = module.site_2_site_vpn_rsg.rg_location
+  environementtag  = "production"
+  billing-code     = "100"
 }
 
 resource "azurerm_subnet" "GatewaySubnet" {
