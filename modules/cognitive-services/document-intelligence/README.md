@@ -50,3 +50,32 @@ No modules.
 | <a name="output_azurerm_role_definition_uuid"></a> [azurerm\_role\_definition\_uuid](#output\_azurerm\_role\_definition\_uuid) | The document intelligence custom role uuid. |
 | <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | The resource group name that where the resoruces are deployed. |
 <!-- END_TF_DOCS -->
+
+
+```golang
+resource "azurerm_role_definition" "terraform_pike" {
+  role_definition_id = local.uuid
+  name               = "terraform_pike"
+  scope              = data.azurerm_subscription.primary.id
+
+  permissions {
+    actions = [
+    "Microsoft.Resources/subscriptions/providers/read",
+    "Microsoft.Resources/subscriptions/resourcegroups/delete",
+    "Microsoft.Resources/subscriptions/resourcegroups/read",
+    "Microsoft.Resources/subscriptions/resourcegroups/write"]
+    not_actions = []
+  }
+
+  assignable_scopes = [
+    data.azurerm_subscription.primary.id,
+  ]
+}
+
+locals {
+  uuid = uuid()
+}
+
+data "azurerm_subscription" "primary" {
+}
+```
