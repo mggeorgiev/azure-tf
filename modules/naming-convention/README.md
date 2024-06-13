@@ -29,7 +29,6 @@ No resources.
 | <a name="input_location"></a> [location](#input\_location) | Resource location. | `string` | `"westeurope"` | no |
 | <a name="input_nic_name"></a> [nic\_name](#input\_nic\_name) | nic-<##>-<vm name>-<subscription type>-<###> | `string` | n/a | yes |
 | <a name="input_regions"></a> [regions](#input\_regions) | n/a | `map(any)` | <pre>{<br>  "Central US": "centralus",<br>  "East US": "eastus",<br>  "East US 2": "eastus2",<br>  "Global": "global",<br>  "North Europe": "northeurope",<br>  "West Europe": "westeurope"<br>}</pre> | no |
-| <a name="input_regions_prefixes"></a> [regions\_prefixes](#input\_regions\_prefixes) | n/a | `map(any)` | <pre>{<br>  "centralus": "cus1",<br>  "eastus": "eus1",<br>  "eastus2": "eus2",<br>  "global": "glob",<br>  "northeurope": "neu1",<br>  "westeurope": "weu1"<br>}</pre> | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | rg-<app or service name>-<subscription type>-<###> | `string` | `null` | no |
 | <a name="input_snet_name"></a> [snet\_name](#input\_snet\_name) | snet-<subscription type>-<region>-<###> | `string` | n/a | yes |
 | <a name="input_storage_account_diagnostics_name"></a> [storage\_account\_diagnostics\_name](#input\_storage\_account\_diagnostics\_name) | stdiag<first 2 letters of subscription name and number><region><###> | `string` | n/a | yes |
@@ -40,5 +39,9 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_enviromenet_index"></a> [enviromenet\_index](#output\_enviromenet\_index) | A single letter environement indicator. |
+| <a name="output_enviromenet_prefix"></a> [enviromenet\_prefix](#output\_enviromenet\_prefix) | A three letter environement indicator. |
+| <a name="output_regions_prefixes"></a> [regions\_prefixes](#output\_regions\_prefixes) | A region abreviation. |
 <!-- END_TF_DOCS -->
